@@ -12,7 +12,7 @@ WEB_CONTENT="../website/WebContent"
 
 RESOURCE_DIR="$WEB_CONTENT/Resources"
 
-#wget --no-check-certificate -O $EXTENSION_DATA_DIR/wallet.html https://blockchain.info/wallet/extension-template?resource_relative=true&type=firefox
+#wget --no-check-certificate -O $EXTENSION_DATA_DIR/wallet.html 'https://blockchain.info/wallet/extension-template?resource_relative=true&type=firefox'
 
 #Copy Favicon
 cp $WEB_CONTENT/favicon.ico $EXTENSION_DATA_DIR/
@@ -29,8 +29,7 @@ cp $RESOURCE_DIR/facebook.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/facebook14.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/bitcoin-wallet-app.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/app-store.png  $EXTENSION_DATA_DIR/Resources/
-cp $RESOURCE_DIR/logo_chrome.png  $EXTENSION_DATA_DIR/Resources/logo_new.png
-cp $RESOURCE_DIR/export_24.png  $EXTENSION_DATA_DIR/Resources/
+cp $RESOURCE_DIR/logo_firefox.png  $EXTENSION_DATA_DIR/Resources/logo_new.png
 cp $RESOURCE_DIR/advanced.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/chart_bar.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/ajax-loader.gif  $EXTENSION_DATA_DIR/Resources/
@@ -38,7 +37,7 @@ cp $RESOURCE_DIR/Remove.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/external.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/add.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/note.png  $EXTENSION_DATA_DIR/Resources/
-cp $RESOURCE_DIR/Refresh.png  $EXTENSION_DATA_DIR/Resources/
+cp $RESOURCE_DIR/refresh.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/arrow_right_red.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/arrow_right_green.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/info.png  $EXTENSION_DATA_DIR/Resources/
@@ -52,11 +51,14 @@ cp $RESOURCE_DIR/down_red.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/cash_deposit_large.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/network.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/logout.png  $EXTENSION_DATA_DIR/Resources/
+cp $RESOURCE_DIR/logout-orange.png $EXTENSION_DATA_DIR/Resources/
+cp $RESOURCE_DIR/logout-red.png $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/sms.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/twitter.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/twitter-200.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/email.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/android.png  $EXTENSION_DATA_DIR/Resources/
+cp $RESOURCE_DIR/qrcode.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/anon-man.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/phone.png  $EXTENSION_DATA_DIR/Resources/
 cp $RESOURCE_DIR/note_grey.png  $EXTENSION_DATA_DIR/Resources/
@@ -85,8 +87,8 @@ cp $RESOURCE_DIR/wallet/bitcoinjs.min.js  $EXTENSION_DATA_DIR/Resources/wallet/
 cp $RESOURCE_DIR/wallet/wallet.min.js  $EXTENSION_DATA_DIR/Resources/wallet/
 cp $RESOURCE_DIR/wallet/signer.min.js  $EXTENSION_DATA_DIR/Resources/wallet/
 cp $RESOURCE_DIR/wallet/llqrcode.js  $EXTENSION_DATA_DIR/Resources/wallet/
+cp $RESOURCE_DIR/wallet/jquery.qrcode.min.js  $EXTENSION_DATA_DIR/Resources/wallet/
 cp $RESOURCE_DIR/wallet/qr.code.reader.js  $EXTENSION_DATA_DIR/Resources/wallet/
-cp $RESOURCE_DIR/wallet/qr.code.creator.js  $EXTENSION_DATA_DIR/Resources/wallet/
 cp $RESOURCE_DIR/wallet/import-export.min.js  $EXTENSION_DATA_DIR/Resources/wallet/
 cp $RESOURCE_DIR/wallet/account.min.js  $EXTENSION_DATA_DIR/Resources/wallet/
 cp $RESOURCE_DIR/wallet/frame-modal.js  $EXTENSION_DATA_DIR/Resources/wallet/

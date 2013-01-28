@@ -1,0 +1,11 @@
+{
+   "name" : "Blockchain",
+   "fullName" : "My Wallet",
+   "description" : "A Bitcoin client which runs in your browser",
+   "author" : "Ben Reeves",
+   "homepage" : "https://blockchain.info/wallet",
+   "icon" : "resources/blockchain/data/cube48.png",
+   "icon64": "resources/blockchain/data/cube64.png",
+   "id" : "jid0-V4pG0TjosDUIMxKNdyd42yJE0pg@jetpack",
+   "version" : "1.2"
+}

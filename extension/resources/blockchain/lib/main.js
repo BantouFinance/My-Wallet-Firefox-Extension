@@ -8,8 +8,9 @@ var tabs = require('tabs');
 var data = require("self").data;
 var {Cc, Ci} = require("chrome");
 var mediator = Cc['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator);
-var console = {log : function(message){console.log(message);}};
+var console = {log : function(message){}};
 var Request = require("request").Request;
+var isDebug = false;
 
 function addToolbarButton() {
     var document = mediator.getMostRecentWindow("navigator:browser").document;
@@ -33,8 +34,6 @@ function addToolbarButton() {
     btn.setAttribute('id', 'blockchaintoolbutton');
 
     btn.addEventListener('click', function() {
-        console.log('Test');
-
         try {
             tabs.open({
                 url : data.url("wallet.html"),
@@ -64,10 +63,18 @@ function addToolbarButton() {
                                 url: obj.url,
                                 content : obj.data,
                                 onComplete: function (response) {
+                                    console.log('Response ' + response);
+
                                     obj.response = response.text;
                                     obj.status = response.status;
 
-                                    console.log('Sending response');
+                                    worker.port.emit("ajax_response", JSON.stringify(obj));
+                                },
+                                onError : function(response) {
+                                    console.log('On Error');
+
+                                    obj.response = response.text;
+                                    obj.status = response.status;
 
                                     worker.port.emit("ajax_response", JSON.stringify(obj));
                                 }
@@ -88,32 +95,32 @@ function addToolbarButton() {
             console.log(e);
         }
 
-        console.log('Did attach');
-
     }, false)
     navBar.appendChild(btn);
 }
 
 exports.main = function() {
 
-    var logContentScript = "self.port.on('log_message', function(message) {" +
-        "var newcontent = document.createElement('div');" +
-        "newcontent.innerHTML = message;" +
-        "document.body.appendChild(newcontent);" +
-        "})";
+    if (isDebug) {
+        var logContentScript = "self.port.on('log_message', function(message) {" +
+            "var newcontent = document.createElement('div');" +
+            "newcontent.innerHTML = message;" +
+            "document.body.appendChild(newcontent);" +
+            "})";
 
-    tabs.open({
-        url : data.url("debug.html"),
-        onReady : function(tab) {
-            worker = tab.attach({
-                contentScript: logContentScript
-            });
+        tabs.open({
+            url : data.url("debug.html"),
+            onReady : function(tab) {
+                worker = tab.attach({
+                    contentScript: logContentScript
+                });
 
-            console.log = function(message) {
-                worker.port.emit("log_message", message);
+                console.log = function(message) {
+                    worker.port.emit("log_message", message);
+                }
             }
-        }
-    });
+        });
+    }
 
     var windows = require("windows").browserWindows;
 
